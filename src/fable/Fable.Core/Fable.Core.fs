@@ -38,6 +38,12 @@ type KeyValueListAttribute() =
 type StringEnumAttribute() =
     inherit Attribute()    
 
+/// Replace references to types in this assembly with JS imports.
+/// More info: http://fable-compiler.github.io/docs/compiling.html#Project-references
+[<AttributeUsage(AttributeTargets.Assembly)>]
+type JsReferenceAttribute(jsRef: string, ?isSeparateNpmPackage: bool) =
+    inherit Attribute()
+
 /// Erased union type to represent one of two possible values.
 /// More info: http://fable-compiler.github.io/docs/interacting.html#Erase-attribute
 type [<Erase>] U2<'a, 'b> = Case1 of 'a | Case2 of 'b

@@ -1088,7 +1088,6 @@ let transformFiles (com: ICompiler) (parsedProj: FSharpCheckProjectResults) (pro
     parsedProj.AssemblyContents.ImplementationFiles
     |> Seq.where (fun file ->
         projs.Head.FileMap.ContainsKey file.FileName
-        && not (Naming.ignoredFilesRegex.IsMatch file.FileName)
         && projInfo.IsMasked file.FileName)
     |> Seq.choose (fun file ->
         try
