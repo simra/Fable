@@ -50,7 +50,7 @@ and lookup f (expr: FSharpExpr) =
     f expr
     List.iter (lookup f) expr.ImmediateSubExpressions
 
-let proj = parse "temp2/Test2.fsx"
+let proj = parse "src/tools/QuickTest.fsx"
 proj.AssemblyContents.ImplementationFiles
 |> Seq.iteri (fun i file -> printfn "%i) %s" i file.FileName)
 proj.AssemblyContents.ImplementationFiles.[0].Declarations
